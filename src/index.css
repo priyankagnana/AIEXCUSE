@@ -1,0 +1,37 @@
+:root {
+  --bg: #0f0d14;
+  --card: #1a1722;
+  --card-hover: #221f2a;
+  --accent: #c678f0;
+  --accent-dim: #9b5cc9;
+  --mild: #98c379;
+  --serious: #e5c07b;
+  --legendary: #e06c75;
+  --text: #e8e4ef;
+  --text-muted: #8b8699;
+  --border: #2d2a36;
+  --radius: 14px;
+  --font-sans: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
