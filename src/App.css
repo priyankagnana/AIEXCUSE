@@ -152,13 +152,45 @@
   border-left: 4px solid var(--accent);
 }
 
+.excuse-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
 .excuse-label {
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--accent);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
+}
+
+.copy-btn {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.copy-btn:hover {
+  background: var(--card-hover);
+  border-color: var(--accent-dim);
+  color: var(--text);
+}
+
+.copy-btn.copied {
+  background: rgba(80, 200, 120, 0.15);
+  border-color: #50c878;
+  color: #50c878;
 }
 
 .excuse-text {

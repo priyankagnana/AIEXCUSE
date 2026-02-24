@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { generateExcuse } from './api/groq'
 import './App.css'
 
@@ -15,6 +15,14 @@ export default function App() {
   const [excuse, setExcuse] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+  const [copied, setCopied] = useState(false)
+
+  const handleCopy = useCallback(() => {
+    navigator.clipboard.writeText(excuse).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }, [excuse])
 
   async function handleGenerate() {
     setError('')
@@ -97,7 +105,17 @@ export default function App() {
 
       {excuse && (
         <div className="excuse-card">
-          <div className="excuse-label">Your excuse</div>
+          <div className="excuse-card-header">
+            <div className="excuse-label">Your excuse</div>
+            <button
+              type="button"
+              className={`copy-btn ${copied ? 'copied' : ''}`}
+              onClick={handleCopy}
+              title="Copy to clipboard"
+            >
+              {copied ? '✓ Copied!' : '📋 Copy'}
+            </button>
+          </div>
           <p className="excuse-text">"{excuse}"</p>
         </div>
       )}
